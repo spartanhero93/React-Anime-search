@@ -11,51 +11,54 @@ class App extends React.Component {
   state = {
     searchName: "Ghost%20In%20The%20Shell",
     isLoaded: false,
-    data: [],
-    
+    data: []
   };
 
   componentDidMount() {
-    console.log("componentDidMount Called!")
+    console.log("componentDidMount Called!");
     this.getPost();
-  }
-
-  getAnime() {
-    
   }
 
   getPost = () => {
     axios
-      .get(`https://kitsu.io/api/edge/anime/?filter[text]=${this.state.searchName}`)
+      .get(
+        `https://kitsu.io/api/edge/anime/?filter[text]=${this.state.searchName}`
+      )
       .then(res => {
         console.log("ComponentDidMount called")
         let data = res.data.data
         this.setState({ data: data, isLoaded: true })
-
         console.log(this.state.data)
         this.state.data.map(item => {
           console.log(item.links.self)
-        })
+        });
       });
   };
 
-  onInputChange = term => {
+  onInputChange = name => {
     this.setState({
-      id: term
+      searchName: name
     });
-    console.log(term);
+    console.log(name);
   };
 
   render() {
-    console.log("render method called! " + this.state.data.length)
-    return ( 
-    <div>
-      <h1>There currently {this.state.data.length} amount of anime matching that description!</h1>
-      <Animes 
-        animes = {this.state.data}
-      />
-    </div>
-    )
+    console.log("render method called! " + this.state.data.length);
+    return (
+      <div>
+        <h1>
+          There currently {this.state.data.length} amount of anime matching that
+          description!
+        </h1>
+        <Animes animes={this.state.data} />
+        <input
+          type="text"
+          value={this.state.name}
+          onChange={event => this.onInputChange(event.target.value)}
+        />
+        <button onClick={this.getPost}>Search!</button>
+      </div>
+    );
   }
 }
 

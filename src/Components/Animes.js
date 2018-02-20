@@ -3,7 +3,6 @@ import Anime from "./Anime";
 
 const Animes = props => {
   console.log("Animes component called! " + props);
-
   if (!props.isLoaded) {
     return <div>Loading...</div>;
   } else {
