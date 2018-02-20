@@ -8,5 +8,15 @@ body {
 .container {
   text-align: center;
   font-size: 1.6em;
-  padding: 10% 5%;
+}
+
+
+.anime-pictures {
+  border: 3px solid red;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  flex: auto;
+  margin: 0 auto;
+  width: 50%;
 }

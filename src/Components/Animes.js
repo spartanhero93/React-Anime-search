@@ -3,15 +3,16 @@ import Anime from "./Anime";
 
 const Animes = props => {
   console.log("Animes component called! " + props);
-  if (!props.isLoaded) {
-    return <div>Loading...</div>;
+  
+  if(props.isLoaded === false){
+    return <h3>Loading...</h3>
   } else {
-    return (
-      <div>
+    return <div>
         {props.data.map((item, index) => <Anime key={index} item={item} />)}
-      </div>
-    );
+      </div>;
   }
+  
+  
 };
 
 export default Animes;
