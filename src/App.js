@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import AnimeList from "./Components/AnimeList";
-import SearchBar from "./Components/SearchBar";
+import AnimeList from "./Components/AnimesList/index";
+import SearchBar from "./Components/SearchBar/index";
 
 class App extends Component {
   state = {
@@ -32,10 +32,8 @@ class App extends Component {
       <div className="container">
         <div className="main-title">Browse anime</div>
         <SearchBar getPost={this.getPost} />
-        <div className="wrapper">
         <AnimeList data={this.state.data} isLoaded={this.state.isLoaded} />
         </div>
-      </div>
     );
   }
 }

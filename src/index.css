@@ -6,23 +6,6 @@ body {
   background-color: rgb(67, 40, 92);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
-img {
-  object-fit: contain;
-}
-
-input {
-  color: white
-}
-
-.anime-description {
-  font-size: 0.7rem;
-}
-
 .main-title {
   text-align: center;
   padding: 2rem;
@@ -30,4 +13,8 @@ input {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 1.5rem;
+}
+
+.container {
+  text-align: center;
 }
